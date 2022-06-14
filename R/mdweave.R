@@ -56,7 +56,7 @@ mdweave <- function(fn, ofn = file_subs_ext(basename(fn), ".md", FALSE),
   # Filter json (run R code in json) and save result
   dta <- filter_pandoc_json_tree(tmp_ofn)
   tmp_ifn <- tempfile(fileext = ".json")
-  writeLines(rjson::toJSON(dta), tmp_ifn)
+  writeLines(jsonlite::toJSON(dta), tmp_ifn)
   # Convert json back to markdown
   extensions <- get_extensions()
   cmd2 <- sprintf(cmd2, tmp_ifn, ofn, extensions)

@@ -1,14 +1,14 @@
 
-#' @importFrom rjson fromJSON
+#' @importFrom jsonlite fromJSON
 #' 
 filter_pandoc_json_tree <- function(con) {
   if (missing(con)) {
     con <- file("stdin")
     input <- readLines(con, warn = FALSE)
     close(con)
-    dta <- rjson::fromJSON(input, simplify = FALSE)
+    dta <- jsonlite::fromJSON(input, simplify = FALSE)
   } else {
-    dta <- rjson::fromJSON(file = con, simplify = FALSE)
+    dta <- jsonlite::fromJSON(file = con, simplify = FALSE)
   }
   # Extra step needed to get correct output; when meta is empty make sure
   # it is a named list; otherwire toJSON will generate 'meta: []' instead

@@ -29,7 +29,7 @@ mdtangle <- function(fn, ofn = file_subs_ext(basename(fn), ".R"),
   on.exit(file.remove(tmp_ofn))
   cmd <- sprintf(cmd, fn, tmp_ofn, extra_arguments)
   system(cmd)
-  dta <- rjson::fromJSON(file = tmp_ofn, simplify = FALSE)
+  dta <- jsonlite::fromJSON(file = tmp_ofn, simplify = FALSE)
   default_fun <- "output_eval"
   verbosity   <- 1
   code <- character(0)

@@ -5,5 +5,5 @@ library(simplermarkdown)
 new_dta <- simplermarkdown:::filter_pandoc_json_tree()  
 
 # Write filtered tree to stcout
-writeLines(rjson::toJSON(new_dta))
+writeLines(jsonlite::toJSON(new_dta))
 
