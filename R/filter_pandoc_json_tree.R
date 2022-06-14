@@ -8,7 +8,7 @@ filter_pandoc_json_tree <- function(con) {
     close(con)
     dta <- jsonlite::fromJSON(input, simplifyVector = FALSE)
   } else {
-    dta <- jsonlite::fromJSON(file = con, simplifyVector = FALSE)
+    dta <- jsonlite::fromJSON(txt = con, simplifyVector = FALSE)
   }
   # Extra step needed to get correct output; when meta is empty make sure
   # it is a named list; otherwire toJSON will generate 'meta: []' instead
